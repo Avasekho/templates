@@ -32,8 +32,7 @@ resource "yandex_compute_instance" "default" {
     }
   }
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-    nat       = true
+    subnet_id = "e2l2fg70r4ua54jffrbf"
   }
 
     metadata = {
@@ -46,14 +45,4 @@ resource "yandex_compute_instance" "default" {
     preemptible = true
   }
 
-}
-resource "yandex_vpc_network" "default" {
-  name = "default"
-}
-
-resource "yandex_vpc_subnet" "subnet-1" {
-  v4_cidr_blocks = ["10.2.0.0/16"]
-  name       = "subnet1"
-  zone       = "ru-central1-b"
-  network_id = "${yandex_vpc_network.default.id}"
 }
