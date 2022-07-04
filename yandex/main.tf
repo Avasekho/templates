@@ -39,7 +39,7 @@ resource "yandex_compute_instance" "default" {
     metadata = {
     ssh-keys = "avasekho:${file("/home/avasekho/yandex_rsa.pub")}"
     serial-port-enable = 1
-    user-data = "#cloud-config\nusers:\n  - name: avasekho\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']"
+    user-data = file("cloud_config.yaml")
     }
 
   scheduling_policy {

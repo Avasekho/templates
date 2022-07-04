@@ -1,0 +1,9 @@
+#cloud-config
+ssh_pwauth: no
+users:
+  - name: avasekho
+    groups: sudo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdDQo5HDY5kJ+IfQfvACdgsf8033G6Rp3qnCIato49j5G7WrROktXdNzkbTgP8LME7e8ZxdVuDqEN1ip4fI9QOpQM4S0AhzCeypX+BGEGP8G2rem4MQGk87cwq7VEP0IY4YTURP+Sqhx4W9mYdnh3o3xprJqwg6SiFwsGJjuKt+XiLksZp6Asw9iusvk5ROYcKyAJ3F6BGhRuzepuBlrMi4vxPAOs91YeEekGrW1EoGw2bxNZjmMDXmvXm8yWgwV17NPIlJP9yDa1/3gnu3QGXNuxpA+hCsQKDuakmRN2+U/X8MzOn4BgAhmg6FkrD7+RLZxGcNRrE69mHLqjnCgs5 rsa-key-20220523"
