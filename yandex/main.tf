@@ -16,6 +16,7 @@ provider "yandex" {
 
 resource "yandex_compute_instance" "default" {
   name        = "test-tf"
+  hostname    = "test-terr"
   platform_id = "standard-v3"
   zone        = "ru-central1-b"
 
