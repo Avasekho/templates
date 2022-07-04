@@ -32,6 +32,10 @@ resource "yandex_compute_instance" "default" {
     }
   }
 
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.net1.id}"
+  }
+
     metadata = {
     ssh-keys = "avasekho:${file("/home/avasekho/yandex_rsa.pub")}"
     serial-port-enable = 1
@@ -41,4 +45,11 @@ resource "yandex_compute_instance" "default" {
   scheduling_policy {
     preemptible = true
   }
-  }
+
+  resource "yandex_vpc_network" "net1" {}
+
+  resource "yandex_vpc_subnet" "net1" {
+  zone       = "ru-central1-b"
+  network_id = "${yandex_vpc_network.net1.id}"
+}
+}
