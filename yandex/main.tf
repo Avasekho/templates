@@ -37,7 +37,6 @@ resource "yandex_compute_instance" "default" {
   }
 
     metadata = {
-    ssh-keys = "avasekho:${file("/home/avasekho/yandex_rsa.pub")}"
     serial-port-enable = 1
     user-data = file("cloud_config.yaml")
     }
