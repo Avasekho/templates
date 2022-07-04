@@ -27,8 +27,8 @@ resource "yandex_compute_instance" "default" {
   boot_disk {
     initialize_params {
       image_id = "fd81u2vhv3mc49l1ccbb"
-      size = 20
-      type = network-hdd
+      size = "20"
+      type = "network-hdd"
     }
   }
 
@@ -37,4 +37,8 @@ resource "yandex_compute_instance" "default" {
     serial-port-enable = 1
     user-data = "#cloud-config\nusers:\n  - name: avasekho\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']"
     }
+
+  scheduling_policy {
+    preemptible = true
+  }
   }
