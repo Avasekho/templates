@@ -31,7 +31,6 @@ resource "yandex_compute_instance" "default" {
       type = "network-hdd"
     }
   }
-
   network_interface {
     subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
     nat       = true
@@ -47,6 +46,7 @@ resource "yandex_compute_instance" "default" {
     preemptible = true
   }
 
+}
 resource "yandex_vpc_network" "network-1" {
   name = "network1"
 }
@@ -55,5 +55,4 @@ resource "yandex_vpc_subnet" "subnet-1" {
   name       = "subnet1"
   zone       = "ru-central1-b"
   network_id = "${yandex_vpc_network.network-1.id}"
-}
 }
