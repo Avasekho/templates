@@ -8,10 +8,15 @@ terraform {
 }
 
 provider "yandex" {
-  token                    = "auth_token_here"
+  token                    = var.token_id
   cloud_id                 = "b1geif0o8r531j9g9i4f"
   folder_id                = "b1gltdfspvplkhv2p5i0"
   zone                     = "ru-central1-b"
+}
+
+variable "token_id" {
+  type        = string
+  description = "oAuth token"
 }
 
 resource "yandex_compute_instance" "default" {
