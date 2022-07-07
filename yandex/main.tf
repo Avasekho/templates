@@ -39,6 +39,7 @@ resource "yandex_compute_instance" "default" {
   }
   network_interface {
     subnet_id = "e2l2fg70r4ua54jffrbf"
+    nat = true
   }
 
     metadata = {
